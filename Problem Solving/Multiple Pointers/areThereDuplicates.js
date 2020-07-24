@@ -1,22 +1,40 @@
-const areThereDuplicates = (p1=null, p2=null, p3=null, p4=null) => {
-    let arr = p4 === null ? [p1, p2, p3].sort() : [p1, p2, p3, p4].sort();
-    
-    let i = 0;
-    let j = 1;
-    
-    while(i < arr.length) {
-        if(i === j) return false;
-        if(arr[i] === arr[j]) return true;
-         
-        if(j === (arr.length - 1)) {
-            i++;
-            j = typeof arr[i + 1] !== 'undefined' ? (i + 1) : i;
-        } else {
-            j++;
-        } 
-    }
 
-    return false;
+/**
+ *  Fuction that checks if there are duplicate values in a arguments list.
+ * 
+ *  @param  {...any} args List of arguments can be whaterver data type separated by commas.
+ *  @returns bool Returns true if the arguments contain duplicate values else false.
+ * 
+ *  Solution:
+ *      First we need to sort the array so that possible duplicated to be next to one another. 
+ *      Next using 2 pointer start and next which have initial values 0 and 1. If you find 
+ *      a duplicate then return true else move both cursors and loop the whole process while
+ *      the 2nd pointer hasnt reached the last argument.
+ * 
+ *      
+ *      Start: [1,2,3,5,6,2]
+ *              
+ *      Sorted: [1,2,2,3,5,6]
+ * 
+ *                 i j
+ *      1st Loop: [1,2,2,3,5,6]
+ *                 
+ *                   i j
+ *      1st Loop: [1,2,2,3,5,6] -> Return true.
+ */
+const areThereDuplicates = (...args) => {
+    args.sort();
+    let start = 0;
+    let next = 1;
+
+    while(next < args.length){
+        if(args[start] === args[next])
+            return true
+        
+        start++
+        next++
+    }
+    return false
 };
 
 let c1 = areThereDuplicates(1, 2, 3);

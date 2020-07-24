@@ -1,3 +1,10 @@
+/**
+ * Function that finds the biggest sum of a subarray given its length.
+ * 
+ * @param {*} arr 
+ * @param {*} len 
+ */
+
 const maxSubarraySum = (arr, len) => {
     if(arr.length === 0 || arr.length < len) return null;
     
