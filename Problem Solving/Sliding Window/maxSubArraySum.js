@@ -1,8 +1,9 @@
 /**
  * Function that finds the biggest sum of a subarray given its length.
  * 
- * @param {*} arr 
- * @param {*} len 
+ * @param {*} arr Array with numbers from which to find the biggest subarray sum.
+ * @param {*} len The length of subarray to sum.
+ * 
  */
 
 const maxSubarraySum = (arr, len) => {
