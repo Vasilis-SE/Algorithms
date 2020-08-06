@@ -1,6 +1,4 @@
-const swap = (arr, idx1, idx2) => {
-    [ arr[idx1], arr[idx2]  ] = [ arr[idx2], arr[idx1]  ];
-};
+const swap = require("./swap");
 
 // Not fully optimized
 // const bubbleSort = (arr) => {
