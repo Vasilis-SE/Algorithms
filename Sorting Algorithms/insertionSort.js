@@ -1,5 +1,3 @@
-const swap = require("./swap");
-
 const insertionSort = (arr) => {
     for(var i=1; i<arr.length; i++) {
         let curVal = arr[i];
