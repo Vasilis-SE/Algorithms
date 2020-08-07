@@ -1,4 +1,4 @@
-const merge = require("./merge");
+const merge = require("./Helpers/merge");
 
 const mergeSort = (arr) => {
     if(arr.length <= 1) return arr;

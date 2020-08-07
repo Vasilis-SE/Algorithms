@@ -1,4 +1,4 @@
-const pivot = require("./pivot");
+const pivot = require("./Helpers/pivot");
 
 const quickSort = (arr, left=0, right=arr.length-1) => {
     if(left < right) {

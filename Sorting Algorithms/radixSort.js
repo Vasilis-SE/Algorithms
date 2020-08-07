@@ -1,4 +1,4 @@
-const radixHelpers = require('./radixHelpers');
+const radixHelpers = require('./Helpers/radixHelpers');
 
 const radixSort = (arr) => {
     let maxDigits = radixHelpers.mostDigits(arr);

@@ -1,4 +1,4 @@
-const swap = require("./swap");
+const swap = require("./Helpers/swap");
 
 // Not fully optimized
 // const bubbleSort = (arr) => {
