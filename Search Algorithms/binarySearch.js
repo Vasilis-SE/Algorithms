@@ -1,3 +1,38 @@
+/**
+ * Function that implements the binary search algorithm. 
+ * 
+ * Binary Search algorithm takes a pivot point in the middle of the array. Since the array is sorted then check
+ * if the wanted number is greater than the pivot point then we can discard the left side of the array (bacause
+ * the values up until the pivot point is less than the wanted number) and so the wanted number must be in the 
+ * right side. Else the wanted number is less than the pivot point then we can descard the right side.
+ * 
+ * Finaly if the left side reached the right side then all the values are searched.
+ * 
+ * The Big O Notation of the Binary search algorith is: 
+ *      Time Complexity: 
+ *          O(1) -> Best Case
+ *          O(log n) -> Avarage Case | Worst Case
+ * 
+ *      Space Complexity: 
+ *          O(1) -> Best Case | Avarage Case | Worst Case
+ * 
+ * Example: 
+ *      Input: [1,2,3,4,5] | Searching for: 4
+ *      
+ *      Step 1: [1, 2, 3, 4, 5] = Pivot is 3 and is less descard the left side of the array
+ *               l     ^     r
+ *      
+ *      Step 2: [4, 5] = Pivot is equal with the wanted so stop.
+ *               ^  r
+ *               l
+ * 
+ * Tip: 
+ *      When finding the pivot point we need to either round up or round down. It doesnt matter as long 
+ *      as there is consistency.
+ *              
+ * @param {*} arr A sorted array to search from.
+ * @param {*} num The number to search the array.
+ */
 const binarySearch = (arr, num) => {
     let left = 0;
     let right = arr.length - 1;

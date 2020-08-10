@@ -1,3 +1,17 @@
+/**
+ * Quick sort is an algorithm that selects a pivot in the array or part of the array (we select the start and the end of it)
+ * if the pivot is greater than the value of the nth item the increment the pivot index and swap those values. In the end return
+ * the pivot index and call recursively the function for the left part and the right part of the list based on the pivot that
+ * returned.
+ * 
+ * The Big O Notation of the linear search algorithm is: 
+ *      Time Complexity: 
+ *          O(n log n) -> Best Case | Avarage Case
+ *          O(n^2) -> Worst Case 
+ *  
+ *      Space Complexity: 
+ *          O(n) -> Best Case | Avarage Case | Worst Case 
+ */
 const pivot = require("./Helpers/pivot");
 
 const quickSort = (arr, left=0, right=arr.length-1) => {
