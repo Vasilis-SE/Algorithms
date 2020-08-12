@@ -38,6 +38,33 @@ class SinglyLinkedList {
         return current;
     }
 
+    shift() {
+        if(!this.head) return undefined; 
+        let previousHead = this.head;
+        this.head = previousHead.next;
+        this.length--;
+        
+        if(this.length === 0) 
+            this.tail = null;
+
+        return previousHead;
+    }
+
+    unshift(val) {
+        let newHead = new Node(val);
+
+        if(!this.head) {
+            this.head = newHead;
+            this.tail = newHead;
+        } else {
+            newHead.next = this.head;
+            this.head = newHead;
+        }
+
+        this.length++;
+        return this;
+    }
+
 }
 
 module.exports = SinglyLinkedList;
