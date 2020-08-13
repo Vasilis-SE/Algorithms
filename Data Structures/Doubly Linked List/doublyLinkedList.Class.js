@@ -62,15 +62,70 @@ class DoublyLinkedList {
             this.tail = null;
             this.head = null;
         } else {
-            // Sever the connection of the poped node to not point back to the list
-            oldHead.next = null;
             this.head = this.head.next;
+
+            // Sever the connections of the shifted node and the new node 
+            // to not point on the old node and to the new node.
+            oldHead.next = null;
             this.head.previous = null;
         }
 
         this.length--;
         return oldHead;
     }
+
+    unshift(val) {
+        let newHead = new Node(val);
+        let oldHead = this.head;
+
+        newHead.next = oldHead;
+        newHead.previous = null;
+        oldHead.previous = newHead;
+        this.head = newHead;
+        
+        this.length++;
+        return true;
+    }
+
+    get(index) {
+        if(index < 0 || index > this.length) return false;
+        if(index === 0) return this.head;
+        if(index === this.length) return this.tail;
+
+        let current = this.head;
+        for(let i=0; i<this.length; i++) {
+            if(i === index) return current;
+            current = current.next;
+        }
+
+        return false;
+    }
+
+    set(index, val) {
+        let foundNode = this.get(index);
+        if(!foundNode) return false;
+        foundNode.val = val;
+        return true;
+    }
+
+    insert(index, val) {
+        if(index < 0 || index > this.length) return false;
+        if(index === 0) return this.unshift(val); // This is the same as unshift
+        if(index === this.length) return this.push(val); // This is the same as push
+
+        let newNode = new Node(val);
+        let nextNode = this.get(index);
+        let previousNode = this.get(index - 1);
+
+        newNode.next = nextNode;
+        newNode.previous = previousNode;
+
+        previousNode.next = newNode;
+        nextNode.previous = newNode;
+
+        return true;
+    }
+
 
 }
 
