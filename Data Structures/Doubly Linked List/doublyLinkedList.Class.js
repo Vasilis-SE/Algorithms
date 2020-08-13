@@ -114,19 +114,34 @@ class DoublyLinkedList {
         if(index === this.length) return this.push(val); // This is the same as push
 
         let newNode = new Node(val);
-        let nextNode = this.get(index);
-        let previousNode = this.get(index - 1);
+        let oldNode = this.get(index);
 
-        newNode.next = nextNode;
-        newNode.previous = previousNode;
+        newNode.next = oldNode;
+        newNode.previous = oldNode.previous;
 
-        previousNode.next = newNode;
-        nextNode.previous = newNode;
+        oldNode.previous.next = newNode;
+        oldNode.previous = newNode;
 
+        this.length++;
         return true;
     }
 
+    remove(index) {
+        if(index < 0 || index >= this.length) return false;
+        if(index === 0) return this.shift(); // If the index is 0 is the same with shift.
+        if(index === (this.length - 1)) return this.pop();
 
+        let nodeToRemove = this.get(index);
+
+        nodeToRemove.previous.next = nodeToRemove.next;
+        nodeToRemove.next.previous = nodeToRemove.previous;
+
+        nodeToRemove.previous = null;
+        nodeToRemove.next = null;
+
+        this.length--;
+        return true;
+    }
 }
 
 module.exports = DoublyLinkedList;

@@ -20,6 +20,14 @@ doublyLinkedList.display();
 // console.log(doublyLinkedList.get(3));
 // console.log(doublyLinkedList.get(45));
 
-console.log(doublyLinkedList.set(0, 100));
-console.log(doublyLinkedList.set(45, 100));
+// console.log(doublyLinkedList.set(0, 100));
+// console.log(doublyLinkedList.set(45, 100));
+// doublyLinkedList.display();
+
+doublyLinkedList.insert(0, 100)
+doublyLinkedList.display();
+doublyLinkedList.insert(2, 110)
+doublyLinkedList.display();
+
+doublyLinkedList.remove(2)
 doublyLinkedList.display();
