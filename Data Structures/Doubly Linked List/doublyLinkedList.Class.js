@@ -77,8 +77,8 @@ class DoublyLinkedList {
     unshift(val) {
         let newHead = new Node(val);
         if(this.length === 0) {
-            this.head = newNode;
-            this.tail = newNode;
+            this.head = newHead;
+            this.tail = newHead;
         } else {
             this.head.previous = newHead;
             newHead.next = this.head;
@@ -90,7 +90,7 @@ class DoublyLinkedList {
     }
 
     get(index) {
-        if(index < 0 || index > this.length) return false;
+        if(index < 0 || index > (this.length - 1)) return false;
         if(index === 0) return this.head;
         if(index === this.length) return this.tail;
 
@@ -111,7 +111,7 @@ class DoublyLinkedList {
     }
 
     insert(index, val) {
-        if(index < 0 || index > this.length) return false;
+        if(index < 0 || index > (this.length - 1)) return false;
         if(index === 0) return this.unshift(val); // This is the same as unshift
         if(index === this.length) return this.push(val); // This is the same as push
 
@@ -129,7 +129,7 @@ class DoublyLinkedList {
     }
 
     remove(index) {
-        if(index < 0 || index >= this.length) return false;
+        if(index < 0 || index >= (this.length - 1)) return false;
         if(index === 0) return this.shift(); // If the index is 0 is the same with shift.
         if(index === (this.length - 1)) return this.pop();
 
@@ -144,6 +144,20 @@ class DoublyLinkedList {
         this.length--;
         return true;
     }
+
+    reverse() {
+        const reverseHelper = (current) => {
+            if(!current) return this;
+            reverseHelper(current.next);
+            this.push(current.val);
+            this.shift();
+        };
+        reverseHelper(this.head);
+        return this;
+    }
+
+
+
 }
 
 module.exports = DoublyLinkedList;
