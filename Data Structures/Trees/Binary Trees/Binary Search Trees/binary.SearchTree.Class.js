@@ -1,4 +1,5 @@
-const Node = require('./node.Class');
+const Node = require('./bst.node.Class');
+const Queue = require('../../../Queue/queue.class');
 
 class BinarySearchTree {
     constructor() {
@@ -44,19 +45,71 @@ class BinarySearchTree {
         if(!this.root) return false;
         
         let currentNode = this.root;
-        while(true) {
-            if(value === currentNode.value) { // Is equal so it already exists
+        while(currentNode) {
+            if(value === currentNode.value) // Is equal so it already exists
                 return currentNode;
-            } else if (value > currentNode.value) { // Move to the right
-                if(!currentNode.right) return false;
+            else if (value > currentNode.value) // Move to the right
                 currentNode = currentNode.right;
-            } else { // Move to the left
-                if(!currentNode.left) return false;
+            else  // Move to the left
                 currentNode = currentNode.left;
-            }
         } 
     }
 
+    bfs() { // Breadth First Search
+        const queue = new Queue();
+        const visited = [];
+
+        queue.enqueue(this.root);
+        while(queue.size > 0) {
+            let tempNode = queue.dequeue();
+            visited.push(tempNode.value.value);
+
+            if(tempNode.value.left) queue.enqueue(tempNode.value.left);
+            if(tempNode.value.right) queue.enqueue(tempNode.value.right);
+        }
+
+        return visited;
+    }
+
+    dfs_preorder() {
+        const visited = [];
+
+        const traverse = (node) => {    
+            visited.push(node.value);
+
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+        };
+        traverse(this.root);
+
+        return visited;
+    }
+
+    dfs_postorder() {
+        const visited = [];
+
+        const traverse = (node) => {    
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+            visited.push(node.value);
+        };
+        traverse(this.root);
+
+        return visited;
+    }
+
+    dfs_inorder() {
+        const visited = [];
+
+        const traverse = (node) => {    
+            if(node.left) traverse(node.left);
+            visited.push(node.value);
+            if(node.right) traverse(node.right);
+        };
+        traverse(this.root);
+
+        return visited;
+    }
 
 }
 

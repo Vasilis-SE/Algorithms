@@ -1,4 +1,4 @@
-const Node = require('./node.class');
+const QNode = require('./queue.node.class');
 
 class Queue {
     constructor() {
@@ -8,7 +8,7 @@ class Queue {
     }
 
     enqueue(value) {
-        let newNode = new Node(value);
+        let newNode = new QNode(value);
 
         if(!this.first) { // If stack is empty the put on first and last the new node.
             this.first = newNode;
