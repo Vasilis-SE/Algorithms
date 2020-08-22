@@ -8,6 +8,10 @@ bst.insert(3);
 bst.insert(8);
 bst.insert(20);
 
-console.log(bst.dfs_preorder());
-console.log(bst.dfs_postorder());
-console.log(bst.dfs_inorder());
+console.log(bst.dfs("PREORDER"));
+console.log(bst.dfs("POSTORDER"));
+console.log(bst.dfs("INORDER"));
+
+
+
+

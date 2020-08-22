@@ -71,6 +71,14 @@ class BinarySearchTree {
         return visited;
     }
 
+    dfs(type = "") {
+        switch(type.toUpperCase()) {
+            case "PREORDER": return this.dfs_preorder(); break;
+            case "POSTORDER": return this.dfs_postorder(); break;
+            case "INORDER": return this.dfs_inorder(); break;
+        }
+    }
+
     dfs_preorder() {
         const visited = [];
 
