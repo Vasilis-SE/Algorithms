@@ -1,5 +1,5 @@
 const Node = require('./bst.node.Class');
-const Queue = require('../../../Queue/queue.class');
+const Queue = require('../../Queue/queue.class');
 
 class BinarySearchTree {
     constructor() {
