@@ -24,6 +24,32 @@ class MaxBinaryHeap {
         return this.values;
     }
 
+    extractMax() {
+        if(this.values.length === 0) return false;
+        this.swap(this.values, 0, (this.values.length - 1));
+        this.values.pop();        
+        let parentIndex = 0;
+
+        // Sinking smaller node down in the heap.
+        while(true) {
+            let leftChildIdx = 2 * parentIndex + 1;
+            let rightChildIdx = 2 * parentIndex + 2;
+
+            if(this.values[parentIndex] < this.values[leftChildIdx] && this.values[leftChildIdx] > this.values[rightChildIdx]) {
+                this.swap(this.values, parentIndex, leftChildIdx);
+                parentIndex = leftChildIdx;
+            } else if(this.values[parentIndex] < this.values[rightChildIdx] && this.values[leftChildIdx] < this.values[rightChildIdx]) {
+                this.swap(this.values, parentIndex, rightChildIdx);
+                parentIndex = rightChildIdx;
+            } else {
+                break;
+            }   
+        }
+
+        return this.values;
+    }
+
 }
+
 
 module.exports = MaxBinaryHeap;
