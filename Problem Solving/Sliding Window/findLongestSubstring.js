@@ -37,7 +37,7 @@ const findLongestSubstring = (str) => {
         max = Math.max(max, curString.length);
     }
 
-    return max;
+    return curString;
 };
 
 console.log( `Empty = `, findLongestSubstring('') );
