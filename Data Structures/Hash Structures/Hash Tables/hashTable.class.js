@@ -27,13 +27,33 @@ class HashTable {
     // Set value with generated hash key using Sepatate Chaining method.
     get(key) {
         let index = this._hash(key);
-        if(!this.keyMap[index]) return undefined;
         
-        for(let keyValPair in this.keyMap[index]) {
-            if(keyValPair[0] === key) return this.keyMap[index];
-        }
-
+        for(let keyValPair of this.keyMap[index]) 
+            if(keyValPair[0] === key) return keyValPair;
+        
         return undefined;
+    }
+
+    keys() {
+        let keysList = [];
+
+        for(let index in this.keyMap) 
+            for(let keyValPair of this.keyMap[index]) 
+                if(!keysList.includes(keyValPair[0])) 
+                    keysList.push(keyValPair[0]);
+        
+        return keysList;
+    }
+
+    values() {
+        let valuesList = [];
+
+        for(let index in this.keyMap) 
+            for(let keyValPair of this.keyMap[index]) 
+                if(!valuesList.includes(keyValPair[1])) 
+                    valuesList.push(keyValPair[1]);
+        
+        return valuesList;
     }
 
 }
