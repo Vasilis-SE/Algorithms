@@ -36,6 +36,34 @@ class Graph {
         return true;
     }
 
+    removeVertex(vertex) {
+        if(!this.adjacencyList[vertex]) return false;
+
+        // Remove edges of the vertex to be removed.
+        for(const v of this.adjacencyList[vertex]) 
+            this.removeEdge(v, vertex);
+        
+
+        // Remove the unedged vertex from the graph.
+        delete this.adjacencyList[vertex];
+        return true;
+    }
+
+    DFS_Recursive(vertex = "", results = []) {
+        if(!this.adjacencyList[vertex]) return false;
+        
+        results.push(vertex);
+        for(let vtx of this.adjacencyList[vertex]) 
+            if(results.indexOf(vtx) === -1) 
+                this.DFS_Recursive(vtx, results);
+            
+        return results;
+    }
+
+    DFS_Iterative() {
+        
+    }
+
 
 }
 
