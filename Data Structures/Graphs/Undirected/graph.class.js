@@ -1,3 +1,5 @@
+const Stack = require('../../Stack/stack.class');
+
 class Graph {
     constructor() {
         this.adjacencyList = {};
@@ -42,7 +44,6 @@ class Graph {
         // Remove edges of the vertex to be removed.
         for(const v of this.adjacencyList[vertex]) 
             this.removeEdge(v, vertex);
-        
 
         // Remove the unedged vertex from the graph.
         delete this.adjacencyList[vertex];
@@ -60,8 +61,25 @@ class Graph {
         return results;
     }
 
-    DFS_Iterative() {
-        
+    DFS_Iterative(vertex = "") {
+        let stack = new Stack();
+        let results = [];
+
+        stack.push( vertex );
+        while(stack.size !== 0) {
+            let stackVertexNode = stack.pop();
+
+            // Vertex is not visited
+            if(results.indexOf(stackVertexNode.value) === -1) {
+                results.push(stackVertexNode.value);
+                for(let vtx of this.adjacencyList[stackVertexNode.value]) {
+                    stack.push(vtx);
+                    console.log(vtx);
+                }
+            }
+        }
+
+        return results;
     }
 
 
