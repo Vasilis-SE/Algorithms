@@ -21,7 +21,9 @@ console.log( JSON.stringify(g.adjacencyList,null,5) );
 console.log("----------------------");
 console.log("Recursive DFS: ");
 console.log("\t" + g.DFS_Recursive("A"));
-
 console.log("----------------------");
 console.log("Iterative DFS: ");
 console.log("\t" + g.DFS_Iterative("A"));
+console.log("----------------------");
+console.log("Recursive BFS: ");
+console.log("\t" + g.BFS_Recursice("A"));

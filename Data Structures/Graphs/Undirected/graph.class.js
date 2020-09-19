@@ -74,7 +74,6 @@ class Graph {
                 results.push(stackVertexNode.value);
                 for(let vtx of this.adjacencyList[stackVertexNode.value]) {
                     stack.push(vtx);
-                    console.log(vtx);
                 }
             }
         }
@@ -82,6 +81,27 @@ class Graph {
         return results;
     }
 
+    BFS_Recursice(vertex = "") {
+        let visited = [];
+        let queue = [vertex];
+       
+        let helper = () => {
+          // Dequeue element and push to visited
+          let curNode = queue.shift();
+          visited.push(curNode);
+          // If a value was not visited and is not in queue, add to queue
+          this.adjacencyList[curNode].forEach((node) => {
+            if (!visited.includes(node) && !queue.includes(node)) {
+              queue.push(node);
+            }
+          });
+          // If there are elements to be visited -> Recursive Call
+          if(queue.length) helper();
+        }
+       
+        helper();
+        return visited;
+    }
 
 }
 
