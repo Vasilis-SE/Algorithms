@@ -1,4 +1,4 @@
-const Stack = require('../../Stack/stack.class');
+const Stack = require('../../../Stack/stack.class');
 
 class Graph {
     constructor() {
