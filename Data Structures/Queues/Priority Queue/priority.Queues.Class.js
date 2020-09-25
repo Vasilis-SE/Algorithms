@@ -33,7 +33,7 @@ class PriorityQueue {
     dequeue() {
         if(this.values.length === 0) return false;
         this.swap(this.values, 0, (this.values.length - 1));
-        this.values.pop();        
+        let dequeuedElement = this.values.pop();        
         let parentIndex = 0;
         let parentElement = this.values[parentIndex];
 
@@ -62,7 +62,7 @@ class PriorityQueue {
             rChEle = this.values[rightChildIdx];
         }
 
-        return this.values;
+        return dequeuedElement;
     }
 }
 
