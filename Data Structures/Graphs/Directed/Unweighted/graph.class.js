@@ -21,22 +21,26 @@ class Graph {
     }
 
     addVertex(id) {
-        if(typeof this.vrtxList[id] != undefined) return false;
+        if(typeof this.vrtxList[id] != 'undefined') return false;
         let newVrtx = new Vertex(id);
         this.vrtxList[id] = newVrtx;
         return true;
     }
 
     getVertex(id) {
-        if(typeof this.vrtxList[id] == undefined) return false;
+        if(typeof this.vrtxList[id] == 'undefined') return false;
         return this.vrtxList[id];
     }
 
     addEdge(fromVrtxID, toVrtxID) {
-        if(typeof this.vrtxList[fromVrtxID].getConnections().contains(toVrtxID) != undefined) return false;
+        if(toVrtxID in this.vrtxList[fromVrtxID].getConnections()) return false;
+        
         let toVrtx = this.getVertex(toVrtxID);
         this.vrtxList[fromVrtxID].addAdjecentVertex(toVrtxID, toVrtx);
         return true;
     }
 
 } // End of class
+
+
+module.exports = new Graph();
