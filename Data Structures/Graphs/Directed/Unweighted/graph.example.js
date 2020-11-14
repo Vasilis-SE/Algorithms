@@ -20,9 +20,5 @@ graph.addEdge('E', 'F');
 graph.addEdge('G', 'D');
 
 
-
-
-console.log( graph );
 console.log( graph.deleteVertex('E') );
-console.log( graph );
-console.log( graph.getVertex('C') );
+console.log( JSON.stringify(graph) );

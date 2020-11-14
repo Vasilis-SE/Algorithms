@@ -36,21 +36,21 @@ class Graph {
         return this.vrtxList[id];
     }
 
-    async deleteVertex(id) {
+    deleteVertex(id) {
         if(typeof this.vrtxList[id] == 'undefined') return false;
-        await this.removeEdgesWithVertex(id); //  Firstly remove edges that point to the vertex.
+        this.removeEdgesWithVertex(id); //  Firstly remove edges that point to the vertex.
         delete this.vrtxList[id]; // Remove vertex entirely.
     }
 
-    async addEdge(fromVrtxID, toVrtxID) {
+    addEdge(fromVrtxID, toVrtxID) {
         if(toVrtxID in this.vrtxList[fromVrtxID].getConnections()) return false;
         
-        let toVrtx = await this.getVertex(toVrtxID);
+        let toVrtx = this.getVertex(toVrtxID);
         this.vrtxList[fromVrtxID].addAdjecentVertex(toVrtxID, toVrtx);
         return true;
     }
 
-    async removeEdgesWithVertex(id) {
+    removeEdgesWithVertex(id) {
         if(this.vrtxList[id].getConnections().length === 0) return false; 
 
         // Remove the connections of all vertexes that point to the vertex we want to remove.
@@ -59,6 +59,10 @@ class Graph {
             if(vrtxConnections.includes(id)) 
                 this.vrtxList[vrtxID].removeAdjecentConnection(id);    
         }
+    }
+
+    DepthFirstSearch() {
+        
     }
 
 } // End of class
