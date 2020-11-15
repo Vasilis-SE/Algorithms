@@ -20,5 +20,4 @@ graph.addEdge('E', 'F');
 graph.addEdge('G', 'D');
 
 
-console.log( graph.deleteVertex('E') );
-console.log( JSON.stringify(graph) );
+console.log( graph.DepthFirstSearch('E') );

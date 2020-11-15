@@ -61,8 +61,16 @@ class Graph {
         }
     }
 
-    DepthFirstSearch() {
-        
+    DepthFirstSearch(vrtxID, visited = []) {
+        if(!this.vrtxList[vrtxID]) return false;
+
+        visited.push( vrtxID );
+        for(let neighborID in this.vrtxList[vrtxID].adjacent) {
+            if(!visited.includes(neighborID)) 
+                this.DepthFirstSearch(neighborID, visited);
+        }
+
+        return visited;
     }
 
 } // End of class
