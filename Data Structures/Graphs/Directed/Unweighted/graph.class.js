@@ -73,6 +73,31 @@ class Graph {
         return visited;
     }
 
+    BreadthFirstSearch(vrtxID) {
+        let visited = [];
+        let queue = [vrtxID];
+       
+        let helper = () => {
+            // Dequeue element and push to visited
+            let curNode = queue.shift();
+            visited.push(curNode);
+
+            // If a value was not visited and is not in queue, add to queue
+            for(let neighborID in this.vrtxList[curNode].adjacent) {
+                if (!visited.includes(neighborID) && !queue.includes(neighborID)) 
+                    queue.push(neighborID);
+            }
+     
+            // If there are elements to be visited -> Recursive Call
+            if(queue.length) helper();
+        }
+       
+        helper();
+        return visited;
+    }
+
+
+   
 } // End of class
 
 

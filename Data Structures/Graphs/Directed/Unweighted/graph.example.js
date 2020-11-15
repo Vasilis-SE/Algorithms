@@ -20,4 +20,5 @@ graph.addEdge('E', 'F');
 graph.addEdge('G', 'D');
 
 
-console.log( graph.DepthFirstSearch('E') );
+console.log( graph.DepthFirstSearch('A') );
+console.log( graph.BreadthFirstSearch('A') );
