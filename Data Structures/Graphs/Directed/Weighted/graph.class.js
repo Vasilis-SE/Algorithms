@@ -1,3 +1,5 @@
+const PriorityQueue = require('../../../Queues/Priority Queue/priority.Queues.Class');
+
 class Vertex {
     constructor(id) {
         this.id = id;
@@ -60,19 +62,19 @@ class Graph {
         }
     }
 
-    DepthFirstSearch(vrtxID, visited = []) {
+    depthFirstSearch(vrtxID, visited = []) {
         if(!this.vertexList[vrtxID]) return false;
 
         visited.push( vrtxID );
         for(let neighborID in this.vertexList[vrtxID].adjacent) {
             if(!visited.includes(neighborID)) 
-                this.DepthFirstSearch(neighborID, visited);
+                this.depthFirstSearch(neighborID, visited);
         }
 
         return visited;
     }
 
-    BreadthFirstSearch(vrtxID) {
+    breadthFirstSearch(vrtxID) {
         let visited = [];
         let queue = [vrtxID];
        
@@ -95,11 +97,30 @@ class Graph {
         return visited;
     }
 
+    dijkstras(startVertex, endVertex) {
+        let priorityQ = new PriorityQueue();
+        let distances = {};
+        let visited = {};
 
+        
+        // Initialize distances & visited object.
+        for(let vrtx in this.vertexList) {
+            let tmpDist = 0;
+			if(vrtx !== startVertex) 
+            tmpDist = Infinity;
+			
+			distances[ vrtx ] = tmpDist;
+			priorityQ.enqueue(vrtx, tmpDist);
+			visited[ vrtx ] = null;
+		}
+        
 
+        while(priorityQ.values.length > 0) {
+            
+        }
 
+    }
 
-    
 } // End of class
 
 
