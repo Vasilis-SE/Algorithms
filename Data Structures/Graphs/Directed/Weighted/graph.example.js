@@ -19,4 +19,7 @@ graph.addEdge('D', 'E', 2);
 graph.addEdge('E', 'F', 3);
 graph.addEdge('G', 'D', 1);
 
-console.log(graph.dijkstras('A', 'E'));
+console.log(graph.dijkstras('A', 'E')); // A, B, E
+console.log(graph.dijkstras('C', 'A')); // C, D, A
+// console.log(graph.dijkstras('A', 'G')); // False
+console.log(graph.dijkstras('G', 'C')); // G, D, A, B, C

@@ -102,7 +102,6 @@ class Graph {
         let distances = {};
         let visited = {};
 
-        
         // Initialize distances & visited object.
         for(let vrtx in this.vertexList) {
             let tmpDist = 0;
@@ -114,12 +113,36 @@ class Graph {
 			visited[ vrtx ] = null;
 		}
         
-
         while(priorityQ.values.length > 0) {
-            
-        }
+            let poppedVrtx = priorityQ.dequeue();
 
+            if(poppedVrtx.value === endVertex) {
+                let path = this.reversePath(startVertex, endVertex, visited);
+                path.reverse();
+                return [...startVertex, ...path];
+            }
+
+            if(distances[ poppedVrtx.value ] !== Infinity) {
+                for(let neighbourID in this.vertexList[ poppedVrtx.value ].adjacent) {
+                    let neighbour = this.vertexList[ poppedVrtx.value ].adjacent[ neighbourID ]
+                    
+                    let calculatedDistFromStart = neighbour.weight + distances[ poppedVrtx.value ];
+                    if(calculatedDistFromStart < distances[ neighbour.vertex.id ]) {
+                        distances[ neighbour.vertex.id ] = calculatedDistFromStart;
+                        visited[ neighbour.vertex.id ] = poppedVrtx.value;
+                        priorityQ.enqueue(neighbour.vertex.id, calculatedDistFromStart);
+                    } 
+                }
+            }
+        }
     }
+
+    reversePath(stvrtx, current, visited, path=[]) {
+		if(stvrtx === current) return;
+		path.push(current);
+		this.reversePath(stvrtx, visited[ current ], visited, path);
+		return path;
+	}
 
 } // End of class
 
