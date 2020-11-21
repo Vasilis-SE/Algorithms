@@ -19,3 +19,4 @@ graph.addEdge('D', 'E', 2);
 graph.addEdge('E', 'F', 3);
 graph.addEdge('G', 'D', 1);
 
+console.log(graph.DepthFirstSearch('A'));

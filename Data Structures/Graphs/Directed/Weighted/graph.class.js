@@ -60,6 +60,18 @@ class Graph {
         }
     }
 
+    DepthFirstSearch(vrtxID, visited = []) {
+        if(!this.vertexList[vrtxID]) return false;
+
+        visited.push( vrtxID );
+        for(let neighborID in this.vertexList[vrtxID].adjacent) {
+            if(!visited.includes(neighborID)) 
+                this.DepthFirstSearch(neighborID, visited);
+        }
+
+        return visited;
+    }
+
 
 } // End of class
 
