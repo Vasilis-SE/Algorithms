@@ -12,6 +12,10 @@ class Vertex {
         this.adjacent[id] = {'vertex': vrtx, 'weight': weight};
         return true;
     }
+
+    removeAdjecentConnection(id) {
+        delete this.adjacent[id];
+    }
 }
 
 class Graph {
@@ -31,6 +35,12 @@ class Graph {
         return this.vertexList[id];
     }
 
+    deleteVertex(id) {
+        if(typeof this.vertexList[id] == 'undefined') return false;
+        this.removeEdgesWithVertex(id); //  Firstly remove edges that point to the vertex.
+        delete this.vertexList[id]; // Remove vertex entirely.
+    }
+
     addEdge(fromVrtxID, toVrtxID, weight) {
         if(toVrtxID in this.vertexList[fromVrtxID].getConnections()) return false;
         
@@ -39,7 +49,16 @@ class Graph {
         return true;
     }
 
+    removeEdgesWithVertex(id) {
+        if(this.vertexList[id].getConnections().length === 0) return false; 
 
+        // Remove the connections of all vertexes that point to the vertex we want to remove.
+        for(let vrtxID in this.vertexList) {
+            let vrtxConnections = this.vertexList[vrtxID].getConnections();
+            if(vrtxConnections.includes(id)) 
+                this.vertexList[vrtxID].removeAdjecentConnection(id);    
+        }
+    }
 
 
 } // End of class
