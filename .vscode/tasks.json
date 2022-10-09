@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "gcc.exe build active file",
+			"command": "gcc",
+			"args": [
+				// "-fdiagnostics-color=always",
+				"-I",
+				"${fileDirname}\\includes\\headers",
+				"-I",
+				"${fileDirname}\\includes\\templates",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\bin\\${fileBasenameNoExtension}.exe",
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: C:\\cygwin64\\bin\\gcc.exe"
+		}
+	]
+}
