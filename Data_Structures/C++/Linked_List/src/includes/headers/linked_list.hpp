@@ -15,12 +15,12 @@ class LinkedList
 {
     private:
         Node<V> *head;
-        int num_of_nodes;
-
+        
     public:
         LinkedList();
         ~LinkedList();
 
+        void display();
         bool add(V value);
 };
 

@@ -24,7 +24,7 @@ T Node<T>::getValue() {
 }
 
 template <typename T>
-Node<T> Node<T>::getNext() {
+Node<T>* Node<T>::getNext() {
     return this->next;
 }
 
@@ -34,6 +34,6 @@ void Node<T>::setValue(T v) {
 }
 
 template <typename T>
-void Node<T>::setNext(Node n) {
+void Node<T>::setNext(Node<T> *n) {
     this->next = n;
 }

@@ -14,10 +14,10 @@ class Node
         ~Node();
 
         T getValue();
-        Node getNext();
+        Node<T>* getNext();
 
         void setValue(T v);
-        void setNext(Node n);
+        void setNext(Node<T> *n);
 };
 
 #include "node.ipp"
