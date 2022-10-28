@@ -1,12 +1,16 @@
 #include "singly_linked_list.hpp"
+#include "circular_linked_list.hpp"
+
+#include <iostream>
+
 
 int main() {
-    // Integer data type
-    LinkedList<int> *lli = new SinglyLinkedList<int>();
-    lli->add(2);
-    lli->add(3);
-    lli->add(4);
-    lli->display();
+    // // Integer data type
+    // LinkedList<int> *lli = new SinglyLinkedList<int>();
+    // lli->add(2);
+    // lli->add(3);
+    // lli->add(4);
+    // lli->display();
 
     // // Char data type
     // LinkedList<char> llc;
@@ -61,6 +65,18 @@ int main() {
     // LinkedList<int*> llia;
     // llia.add(ia);
     // llia.display();
+
+
+    // Integer data type
+    LinkedList<int> *lli = new CircularLinkedList<int>();
+    lli->add(2);
+    lli->add(3);
+    lli->add(4);
+    lli->display();
+
+    std::cout << "Custom looper: " << "\n";
+    
+
 
     return 0;
 }

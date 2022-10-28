@@ -14,8 +14,10 @@ private:
 public:
     virtual ~LinkedList(){};
 
-    virtual void display() = 0;
     virtual bool add(V value) = 0;
+
+    virtual Node<V> forEach() = 0;
+    virtual void display() = 0;
 };
 
 #endif
