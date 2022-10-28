@@ -4,20 +4,20 @@
 template <typename T>
 class Node
 {
-    private:
-        T value;
-        Node<T> *next;
-        
-    public:
-        Node();
-        Node(T value);
-        ~Node();
+private:
+    T value;
+    Node<T> *next;
 
-        T getValue();
-        Node<T>* getNext();
+public:
+    Node();
+    Node(T value);
+    ~Node();
 
-        void setValue(T v);
-        void setNext(Node<T> *n);
+    T getValue();
+    Node<T> *getNext();
+
+    void setValue(T v);
+    void setNext(Node<T> *n);
 };
 
 #include "node.ipp"

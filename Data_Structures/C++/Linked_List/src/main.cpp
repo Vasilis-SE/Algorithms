@@ -1,12 +1,12 @@
-#include "linked_list.hpp"
+#include "singly_linked_list.hpp"
 
 int main() {
     // Integer data type
-    LinkedList<int> lli;
-    lli.add(2);
-    lli.add(3);
-    lli.add(4);
-    lli.display();
+    LinkedList<int> *lli = new SinglyLinkedList<int>();
+    lli->add(2);
+    lli->add(3);
+    lli->add(4);
+    lli->display();
 
     // // Char data type
     // LinkedList<char> llc;

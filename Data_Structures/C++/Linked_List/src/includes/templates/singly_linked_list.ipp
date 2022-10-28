@@ -3,18 +3,18 @@
 #include <iostream>
 
 #include "node.hpp"
-#include "linked_list.hpp"
+#include "singly_linked_list.hpp"
 
 template <typename V> 
-LinkedList<V>::LinkedList() {
+SinglyLinkedList<V>::SinglyLinkedList() {
     this->head = NULL;
 }
 
 template <typename V> 
-LinkedList<V>::~LinkedList() {}
+SinglyLinkedList<V>::~SinglyLinkedList() {}
 
 template <typename V>
-void LinkedList<V>::display() {
+void SinglyLinkedList<V>::display() {
     std::cout << "Linked List Content: " << '\n';
 
     Node<V> *current_node = this->head;
@@ -25,7 +25,7 @@ void LinkedList<V>::display() {
 }
 
 template <typename V>
-bool LinkedList<V>::add(V value) {
+bool SinglyLinkedList<V>::add(V value) {
     Node<V> *new_node = new Node<V>(value);
 
     if(this->head == NULL) {

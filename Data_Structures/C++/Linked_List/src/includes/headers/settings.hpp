@@ -1,0 +1,10 @@
+#ifndef LINKED_LIST_SETTINGS
+#define LINKED_LIST_SETTINGS
+
+enum types {
+    SINGLY_LINKED_LIST,
+    CIRCULAR_LINKED_LIST,
+    DOUBLY_LINKED_LIST 
+};
+
+#endif
