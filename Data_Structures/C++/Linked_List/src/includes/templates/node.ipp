@@ -1,7 +1,5 @@
 #include <stdlib.h>
 
-#include "node.hpp"
-
 template <typename T>
 Node<T>::Node() {
     this->value = NULL;
@@ -36,6 +34,6 @@ void Node<T>::setValue(T v) {
 }
 
 template <typename T>
-void Node<T>::setNext(Node *n) {
+void Node<T>::setNext(Node n) {
     this->next = n;
 }

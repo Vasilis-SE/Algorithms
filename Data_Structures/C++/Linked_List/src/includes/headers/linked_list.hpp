@@ -1,17 +1,20 @@
 #ifndef LINKED_LIST
 #define LINKED_LIST
 
+#include "node.hpp"
+
 enum types {
     SINGLY_LINKED_LIST,
     CIRCULAR_LINKED_LIST,
     DOUBLY_LINKED_LIST 
 };
 
+
 template <typename V>
 class LinkedList
 {
     private:
-        Node<V> head;
+        Node<V> *head;
         int num_of_nodes;
 
     public:

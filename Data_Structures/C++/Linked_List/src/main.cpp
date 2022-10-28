@@ -1,9 +1,12 @@
-#include "node.hpp"
 #include "linked_list.hpp"
 
 int main() {
     LinkedList<int> ll;
-    // ll.add(2);
+    ll.add(2);
+    ll.add(3);
+
+
+
     return 0;
 }
 

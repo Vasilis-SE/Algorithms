@@ -4,16 +4,16 @@
 #include "node.hpp"
 #include "linked_list.hpp"
 
-template <class V> 
+template <typename V> 
 LinkedList<V>::LinkedList() {
     this->head = NULL;
     this->num_of_nodes = 0;
 }
 
-template <class V> 
+template <typename V> 
 LinkedList<V>::~LinkedList() {}
 
-template <class V>
+template <typename V>
 bool LinkedList<V>::add(V value) {
     Node<V> new_node = Node(value);
 

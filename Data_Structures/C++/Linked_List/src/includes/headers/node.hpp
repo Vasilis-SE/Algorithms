@@ -6,7 +6,7 @@ class Node
 {
     private:
         T value;
-        Node* next;
+        Node<T> *next;
         
     public:
         Node();
@@ -17,8 +17,9 @@ class Node
         Node getNext();
 
         void setValue(T v);
-        void setNext(Node *n);
+        void setNext(Node n);
 };
 
+#include "node.ipp"
 
 #endif
