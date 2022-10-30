@@ -20,6 +20,7 @@ bool CircularLinkedList<V>::add(V value) {
     if(this->head == NULL) {
         this->head = new_node;
         new_node->setNext(this->head);
+        this->num_nodes++;
         return true;
     }
 
@@ -29,12 +30,16 @@ bool CircularLinkedList<V>::add(V value) {
 
     current_node->setNext(new_node);
     new_node->setNext(this->head);
+    this->num_nodes++;
     return true;
 }
 
 template <typename V>
 Node<V>* CircularLinkedList<V>::findByIndex(int idx) {
-    if(idx == 0) idx = 1;
+    if(idx > this->num_nodes || idx < 0) 
+        return NULL;
+
+    idx == 0 ? idx = 1 : idx;
     Node<V> *current_node = this->head;
     for(int i=0; i<idx-1; i++) 
         current_node = current_node->getNext();
