@@ -8,14 +8,16 @@ template <typename V>
 class CircularLinkedList : public LinkedList<V>
 {
 private:
+    int num_nodes;
     Node<V> *head;
 
 public:
     CircularLinkedList();
     ~CircularLinkedList();
 
-    void display();
     bool add(V value);
+    Node<V>* findByIndex(int idx);
+    void display();
 };
 
 #include "circular_linked_list.ipp"

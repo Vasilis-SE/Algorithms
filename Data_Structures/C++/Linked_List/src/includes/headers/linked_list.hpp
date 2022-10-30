@@ -9,14 +9,14 @@ template <typename V>
 class LinkedList
 {
 private:
+    int num_nodes;
     Node<V> *head;
 
 public:
     virtual ~LinkedList(){};
 
     virtual bool add(V value) = 0;
-
-    virtual Node<V> forEach() = 0;
+    virtual Node<V>* findByIndex(int idx) = 0;
     virtual void display() = 0;
 };
 

@@ -74,8 +74,19 @@ int main() {
     lli->add(4);
     lli->display();
 
-    std::cout << "Custom looper: " << "\n";
-    
+    Node<int> *n;
+
+    int index = 1;
+    n = lli->findByIndex(index);
+    std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
+
+    index = 3;
+    n = lli->findByIndex(index);
+    std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
+
+    index = 0;
+    n = lli->findByIndex(index);
+    std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
 
 
     return 0;

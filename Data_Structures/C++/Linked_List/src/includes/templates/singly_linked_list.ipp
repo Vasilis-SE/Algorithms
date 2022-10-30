@@ -31,6 +31,15 @@ bool SinglyLinkedList<V>::add(V value) {
 }
 
 template <typename V>
+Node<V>* SinglyLinkedList<V>::findByIndex(int idx) {
+    if(idx == 0) idx = 1;
+    Node<V> *current_node = this->head;
+    for(int i=0; i<idx-1; i++) 
+        current_node = current_node->getNext();
+    return current_node;
+}
+
+template <typename V>
 void SinglyLinkedList<V>::display() {
     std::cout << "Linked List Content: " << '\n';
 

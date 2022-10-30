@@ -8,6 +8,7 @@ template <typename V>
 class SinglyLinkedList : public LinkedList<V>
 {
 private:
+    int num_nodes;
     Node<V> *head;
 
 public:
@@ -15,6 +16,7 @@ public:
     ~SinglyLinkedList();
 
     void display();
+    Node<V>* findByIndex(int idx);
     bool add(V value);
 };
 
