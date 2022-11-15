@@ -8,7 +8,6 @@ template <typename V>
 class CircularLinkedList : public LinkedList<V>
 {
 private:
-    int num_nodes;
     Node<V> *head;
 
 public:
@@ -17,6 +16,7 @@ public:
 
     bool add(V value);
     Node<V>* findByIndex(int idx);
+    bool deleteByIndex(int idx);
     void display();
 };
 

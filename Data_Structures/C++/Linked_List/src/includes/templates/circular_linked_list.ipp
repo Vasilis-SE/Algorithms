@@ -31,19 +31,41 @@ bool CircularLinkedList<V>::add(V value) {
     current_node->setNext(new_node);
     new_node->setNext(this->head);
     this->num_nodes++;
+
     return true;
 }
 
 template <typename V>
 Node<V>* CircularLinkedList<V>::findByIndex(int idx) {
-    if(idx > this->num_nodes || idx < 0) 
+    if(idx > this->getNumberOfNodes() || idx < 0) 
         return NULL;
 
     idx == 0 ? idx = 1 : idx;
     Node<V> *current_node = this->head;
     for(int i=0; i<idx-1; i++) 
         current_node = current_node->getNext();
+ 
     return current_node;
+}
+
+template <typename V>
+bool CircularLinkedList<V>::deleteByIndex(int idx) {
+    if(idx > this->getNumberOfNodes() || idx < 0) 
+        return NULL;
+
+    idx == 0 ? idx = 1 : idx;
+    int prevIdx = idx-1;
+    int nextIdx = idx+1;
+    if(idx == 1) 
+        prevIdx = this->getNumberOfNodes();
+    
+    Node<V>* previousNode = this->findByIndex(prevIdx);
+    Node<V>* currentNode = this->findByIndex(idx);
+    Node<V>* nextNode = this->findByIndex(nextIdx);
+    previousNode->setNext(nextNode);
+    delete currentNode;
+    
+    return true;
 }
 
 template <typename V>

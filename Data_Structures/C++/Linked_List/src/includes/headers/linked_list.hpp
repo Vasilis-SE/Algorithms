@@ -8,16 +8,23 @@
 template <typename V>
 class LinkedList
 {
-private:
+protected:
     int num_nodes;
     Node<V> *head;
+
+    void setNumberOfNodes(int i);
 
 public:
     virtual ~LinkedList(){};
 
     virtual bool add(V value) = 0;
     virtual Node<V>* findByIndex(int idx) = 0;
+    virtual bool deleteByIndex(int idx) = 0;
     virtual void display() = 0;
+
+    int getNumberOfNodes();
 };
+
+#include "linked_list.ipp"
 
 #endif

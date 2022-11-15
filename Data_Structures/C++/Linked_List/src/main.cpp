@@ -75,6 +75,8 @@ int main() {
     lli->add(4);
     lli->display();
 
+    std::cout << "The number of nodes are: " << lli->getNumberOfNodes() << "\n";
+
     Node<int> *n;
 
     int index = 1;
@@ -89,9 +91,29 @@ int main() {
     n = lli->findByIndex(index);
     std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
 
+    index = 4;
+    n = lli->findByIndex(index);
+    if(n == NULL)
+        std::cout << "No node found on position " << index << "\n";
+    else
+        std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
+
     index = 8;
     n = lli->findByIndex(index);
-    std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
+    if(n == NULL)
+        std::cout << "No node found on position " << index << "\n";
+    else
+        std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
+    
+    index = -3;
+    n = lli->findByIndex(index);
+    if(n == NULL)
+        std::cout << "No node found on position " << index << "\n";
+    else
+        std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
+
+    lli->deleteByIndex(2);
+    lli->display();
 
 
     return 0;
