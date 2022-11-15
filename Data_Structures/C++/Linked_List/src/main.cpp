@@ -2,6 +2,7 @@
 #include "circular_linked_list.hpp"
 
 #include <iostream>
+#include <string>
 
 
 int main() {
@@ -85,6 +86,10 @@ int main() {
     std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
 
     index = 0;
+    n = lli->findByIndex(index);
+    std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
+
+    index = 8;
     n = lli->findByIndex(index);
     std::cout << "Node's value on posiiton " << index << " is " << n->getValue() << "\n";
 
